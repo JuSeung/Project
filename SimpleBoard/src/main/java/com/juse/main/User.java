@@ -34,7 +34,7 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private RoleType roleType;
 	@OneToMany(mappedBy="user")
-	private List<Board> boards = new ArrayList<>();
+	private List<Board> boards = new ArrayList<Board>();
 	
 	public User() {
 	}
