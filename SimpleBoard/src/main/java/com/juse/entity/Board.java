@@ -1,4 +1,4 @@
-package com.juse.main;
+package com.juse.entity;
 
 import java.util.Date;
 
@@ -14,19 +14,30 @@ import javax.persistence.TemporalType;
 public class Board {
 	@Id@GeneratedValue
 	@Column(name="BOARD_ID")
-	private Long id;
+	private Integer id;
 	private String title;
 	private Integer pwd;
 	private String text;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
+	
 	@ManyToOne
 	@JoinColumn(name="USER_ID")
 	private User user;
-	public Long getId() {
+	
+	public Board() {
+	}
+	
+	public Board(String title, Integer pwd, String text) {
+		this.title = title;
+		this.pwd = pwd;
+		this.text = text;
+	}
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitle() {

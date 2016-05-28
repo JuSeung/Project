@@ -1,4 +1,4 @@
-package com.juse.main;
+package com.juse.entity;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -24,9 +25,11 @@ import com.juse.enums.RoleType;
  */
 @Entity
 public class User {
-	@Id@GeneratedValue
+	@Id
+	@GeneratedValue
 	@Column(name="USER_ID")
-	private Long id;
+	private int id;
+	
 	private String name;
 	private String nikname;
 	@Temporal(TemporalType.TIMESTAMP)
@@ -39,17 +42,17 @@ public class User {
 	public User() {
 	}
 	
-	public User(String name, String nikname, Date date, RoleType roleType, List<Board> boards) {
-		super();
+	public User(String name, String nikname, RoleType roleType) {
 		this.name = name;
 		this.nikname = nikname;
-		this.date = date;
 		this.roleType = roleType;
-		this.boards = boards;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;

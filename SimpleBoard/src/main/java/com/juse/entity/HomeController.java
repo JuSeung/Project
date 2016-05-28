@@ -1,4 +1,4 @@
-package com.juse.main;
+package com.juse.entity;
 
 import java.text.DateFormat;
 import java.util.Date;
